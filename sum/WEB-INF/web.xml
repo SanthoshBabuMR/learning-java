@@ -1,0 +1,13 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2eeweb-app_2.4.xsd"
+	version="2.4">
+	<servlet>
+		<servlet-name>Add Numbers</servlet-name>
+		<servlet-class>sumServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Add Numbers</servlet-name>
+		<url-pattern>/process-sum</url-pattern>
+	</servlet-mapping>
+</web-app>
