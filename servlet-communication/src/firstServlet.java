@@ -20,15 +20,19 @@ public class firstServlet extends HttpServlet {
 		System.out.println("doGet");
 		PrintWriter out = res.getWriter();
 		
-		String name = req.getParameter("user");
-		System.out.println("first servlet: " + name);
+		String user = req.getParameter("user");
+		System.out.println("first servlet: " + user);
 		
-		// Redirection using RequestDispatcher
-		RequestDispatcher rd = req.getRequestDispatcher("SecondServlet");
-		rd.forward(req, res);
+		// begin: Redirection using RequestDispatcher
+		// RequestDispatcher rd = req.getRequestDispatcher("SecondServlet");
+		// rd.forward(req, res);
+		// end: Redirection using RequestDispatcher
 
-		// Redirection using browser
-		// res.sendRedirect("SecondServlet");
+		// begin: Redirection using browser
+		HttpSession session = req.getSession();
+		session.setAttribute("user", user);
+		res.sendRedirect("SecondServlet");
+		// end: Redirection using browser
 
 
 		// processRequest(req, res);

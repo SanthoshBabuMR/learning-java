@@ -19,8 +19,12 @@ public class secondServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		System.out.println("doGet");
 
-		String name = req.getParameter("user");
-		System.out.println("second servlet: " + name);
+		String user = req.getParameter("user");
+		HttpSession session = req.getSession();
+		if(user == null) {
+			user = session.getAttribute("user").toString();
+		}
+		System.out.println("second servlet: " + user);
 
 
 		PrintWriter out = res.getWriter();
